@@ -82,33 +82,47 @@ function App() {
 
   
   
+                             //condition               //if true                           //if false
+       const newestAppointment = appointments.length > 0 ? appointments[appointments.length - 1] : null;
 
+                             //condition          //if true           //if false
+        const appointmentId = newestAppointment ? newestAppointment.id : null;
 
   //delete newest appointment
-  const handleDeleteClick = () => {
+  const handleDeleteAppointment = (appointmentId) => {
+       
+      
+
+
     if (appointments.length === 0) {
       // No appointments to delete
+      console.log("No appointments to delete")
       return;
     }
+   else(appointments.length !== 0)
+    {
 
     // Send DELETE request to delete the appointment
     fetch(`http://localhost:9292/appointments/${appointmentId}`, {
-      method: 'DELETE',
+    method: 'DELETE',
+  })
+    .then((response) => response.text())
+    .then((message) => {
+      // Display the response message
+      console.log(message);
+
+      // Remove the deleted appointment from the appointments array
+      const updatedAppointments = appointments.filter(
+        (appointment) => appointment.id !== appointmentId
+      );
+      setAppointments(updatedAppointments);
     })
-      .then((response) => response.text())
-      .then((message) => {ss
-        // Display the response message
-        console.log(message);
-        
-        // Remove the deleted appointment from the appointments array
-        const updatedAppointments = appointments.filter(
-          (appointment) => appointment.id !== appointmentId
-        );
-        setAppointments(updatedAppointments);
-      })
-      .catch((error) => {
-        console.error('Error deleting appointment:', error);
-      });
+    .catch((error) => {
+      console.error('Error deleting appointment:', error);
+    });
+
+      console.log("Deleted from database")
+    }
   };
   
    return(
@@ -130,7 +144,9 @@ function App() {
             handleDoctorNameChange={handleDoctorNameChange}
             patientName={patientName}
             doctorName={doctorName}
-            handleDeleteClick={handleDeleteClick}
+            handleDeleteAppointment={handleDeleteAppointment}
+            newestAppointment={newestAppointment}
+            appointmentId={appointmentId}
             
             />}/>
           

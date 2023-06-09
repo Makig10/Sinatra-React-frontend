@@ -6,13 +6,11 @@ function AppointmentListAndForm(
     { appointments ,handleFormSubmit
         ,handlePatientNameChange,handleDoctorNameChange
         ,patientName,doctorName,handleDeleteAppointment,
+        newestAppointment,appointmentId
        
     }
     ) 
-    {
-        const newestAppointment = appointments.length > 0 ? appointments[appointments.length - 1] : null;
-        const appointmentId = newestAppointment ? newestAppointment.id : null;
-      
+    {    
     
 
   return (
@@ -51,7 +49,7 @@ function AppointmentListAndForm(
           <p>Doctor Name: {newestAppointment?.doctor_name}</p>
           <p>Appointment Date: {newestAppointment?.appointment_date}</p>
           <p>Duration: {newestAppointment?.duration}</p>
-          <button onclick={handleDeleteAppointment}>Cancel Appointment</button>
+          <button onclick={()=>handleDeleteAppointment(appointmentId)}>Cancel Appointment</button>
         </div>
 
       
