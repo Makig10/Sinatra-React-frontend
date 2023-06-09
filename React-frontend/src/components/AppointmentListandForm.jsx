@@ -1,67 +1,63 @@
 
 import AppointmentItem from './AppointmentItem';
-
-
-function AppointmentListAndForm(
-    { appointments ,handleFormSubmit
-        ,handlePatientNameChange,handleDoctorNameChange
-        ,patientName,doctorName,handleDeleteAppointment,
-        newestAppointment,appointmentId
-       
-    }
-    ) 
-    {    
-    
-
-  return (
-    <div>
-      <h2>Appointment List</h2>
-
-      <form onSubmit={handleFormSubmit}>
-        <h1>Make an appointment</h1>
-        <div>
-          <label>Patient Name:</label>
-          <input
-            type="text"
-            value={patientName}
-            placeholder="your name.."
-            onChange={handlePatientNameChange}
-          />
+function AppointmentListAndForm({
+    appointments,
+    handleFormSubmit,
+    handlePatientNameChange,
+    handleDoctorNameChange,
+    patientName,
+    doctorName,
+    handleDeleteAppointment,
+    newestAppointment,
+    appointmentId
+  }) {
+    return (
+      <div className="appointment-container">
+        <div className="form-container">
+          <h2>Appointment Form</h2>
+          <form onSubmit={handleFormSubmit}>
+            <div>
+              <label>Patient Name:</label>
+              <input
+                type="text"
+                value={patientName}
+                placeholder="Your name.."
+                onChange={handlePatientNameChange}
+              />
+            </div>
+            <div>
+              <label>Doctor Name:</label>
+              <input
+                type="text"
+                value={doctorName}
+                placeholder="Doctor of your choice"
+                onChange={handleDoctorNameChange}
+              />
+            </div>
+            <button type="submit">Add Appointment</button>
+          </form>
         </div>
-        <div>
-          <label>Doctor Name:</label>
-          <input
-            type="text"
-            value={doctorName}
-            placeholder="doctor of your choice"
-            onChange={handleDoctorNameChange}
-          />
-        </div>
-        <button type="submit">Add Appointment</button>
-      </form>
-
-
-
-        <div id="newAppointment"
-             key={appointmentId}>
-          <h1>Your Appointment form</h1>
+  
+        <div id="new-appointment" className="appointment-details">
+          <h2>Your Appointment</h2>
           <p>Patient Name: {newestAppointment?.patient_name}</p>
           <p>Doctor Name: {newestAppointment?.doctor_name}</p>
           <p>Appointment Date: {newestAppointment?.appointment_date}</p>
           <p>Duration: {newestAppointment?.duration}</p>
-          <button onclick={()=>handleDeleteAppointment(appointmentId)}>Cancel Appointment</button>
+          <button onClick={() => handleDeleteAppointment(appointmentId)}>
+            Cancel Appointment
+          </button>
         </div>
-
-      
-
-      <h3>Appointments:</h3>
-      <div>
-        {appointments.map((appointment, index) => (
-          <AppointmentItem key={index} appointment={appointment} />
-        ))}
+  
+        <div className="appointment-list">
+          <h3>Appointments</h3>
+          {appointments.map((appointment, index) => (
+            <AppointmentItem key={index} appointment={appointment} />
+          ))}
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
+  
+  export default AppointmentListAndForm;
 
-export default AppointmentListAndForm;

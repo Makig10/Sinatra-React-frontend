@@ -65,7 +65,40 @@
   right: 0;
   background-color: #f0f0f0;
 }
+/*Appointment styling*/
+.appointment-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.appointment-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
 
+.form-container {
+  width: 300px;
+  margin-right: 20px;
+}
+
+#new-appointment {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.appointment-details {
+  text-align: center;
+}
+
+.appointment-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
 .logo {
   height: 6em;
   padding: 1.5em;

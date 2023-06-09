@@ -6,12 +6,12 @@ function AppointmentItem({ appointment }) {
         <p>Updated At: {appointment.updated_at}</p> */
     return (
      <> 
-      <div key={appointment.id}>
-        <p>Patient Name: {appointment.patient_name}</p>
-        <p>Doctor Name: {appointment.doctor_name}</p>
-        <p>Appointment Date: {appointment.appointment_date}</p>
-        <p>Duration: {appointment.duration}</p>
-      </div>
+      <div className="appointment-item" key={appointment.id}>
+      <p>Patient Name: {appointment.patient_name}</p>
+      <p>Doctor Name: {appointment.doctor_name}</p>
+      <p>Appointment Date: {appointment.appointment_date}</p>
+      <p>Duration: {appointment.duration}</p>
+    </div>
      </>
     );
   }
