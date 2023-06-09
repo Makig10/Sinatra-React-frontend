@@ -1,0 +1,18 @@
+<>
+      <Router>
+        
+        <Header patients={patients} appointments={appointments}/>      
+        <DoctorList doctors={doctors}/> 
+          
+      </Router>
+    </>
+
+
+    <Route
+            path="/patient-list"
+            element={<PatientList patients={patients} />}
+          />
+          <Route
+            path="/appointment"
+            element={<AppointmentForm doctors={doctors} />}
+          />
