@@ -4,7 +4,8 @@ import React from 'react';
       <p>Updated At: {doctor.updated_at}</p>*/
 function DoctorItem({ doctor }) {
   return (
-    <div key={doctor.id}>
+    <div key={doctor.id}
+    className="doctor-item">
       <h3>Name: {doctor.name}</h3>
       
       <p>Rating: {doctor.rating}</p>
