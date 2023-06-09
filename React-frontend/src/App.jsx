@@ -4,12 +4,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; //rou
 import DoctorList from './components/DoctorList'
 import PatientList from './components/PatientList';
 import Header from './components/Header';
+import AppointmentListAndForm from './components/AppointmentListandForm';
 import './App.css'
 
 function App() {
   const [doctors,setDoctors] = useState([])
   const [patients, setPatients] = useState([])
-  //const [appointments, setAppointments] = useState([])
+  const [appointments, setAppointments] = useState([])
+  
+  
+  //setAppointments([...appointments, newAppointment]);
   
   //fetch /
   useEffect(() => {
@@ -28,11 +32,11 @@ function App() {
     console.log(patients)
   }, []);
 
- /* useEffect(() => {
+ useEffect(() => {
     fetch('http://localhost:9292/all_appointments')
     .then(res => res.json())
     .then(appointments => setAppointments(appointments));
-  }, []);*/
+  }, []);
 
    return(
     <>
@@ -40,11 +44,14 @@ function App() {
         <Header />
         <Routes>
           <Route 
-          path="/" 
+          path="/doctors" 
           element={<DoctorList doctors={doctors} />} />
           <Route
             path="/patient-list"
             element={<PatientList patients={patients} />}/>
+          <Route
+            path="/appointment"
+            element={<AppointmentListAndForm appointments={appointments} />}/>
           
         </Routes>
         
