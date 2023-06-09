@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AppointmentItem from './AppointmentItem';
 
 function AppointmentListAndForm({ appointments }) {
   const [patientName, setPatientName] = useState('');
