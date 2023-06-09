@@ -22,12 +22,12 @@
   text-align: center;
 }
 
-@media (min-width: 768px) {
-  .doctor-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
 /*navbar styling*/
 .navbar-container {
   background-color: #f0f0f0;
@@ -65,7 +65,7 @@
   right: 0;
   background-color: #f0f0f0;
 }
-}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -109,5 +109,21 @@
   background: #e0e0e0;
 
 
+}
+/*Patient styling*/
+.patient-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.patient-list {
+  text-align: center;
+}
+
+.patient-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
 }
 

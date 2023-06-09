@@ -3,7 +3,7 @@ function PatientItem({ patient }) {
       <p>Created At: {patient.created_at}</p>
       <p>Updated At: {patient.updated_at}</p>*/
     return (
-      <div key={patient.id}>
+      <div key={patient.id} className="patient-item">
         
         <p>Name: {patient.name}</p>
         <p>Age: {patient.age}</p>
