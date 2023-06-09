@@ -4,7 +4,7 @@ import React from 'react';
       <p>Updated At: {doctor.updated_at}</p>*/
 function DoctorItem({ doctor }) {
   return (
-    <div>
+    <div key={doctor.id}>
       <h3>Name: {doctor.name}</h3>
       
       <p>Rating: {doctor.rating}</p>

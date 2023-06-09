@@ -13,7 +13,7 @@ function App() {
   const [appointments, setAppointments] = useState([])
   const [patientName, setPatientName] = useState('');
   const [doctorName, setDoctorName] = useState('');
-
+ 
   const handlePatientNameChange = (e) => {
     setPatientName(e.target.value);
   };
@@ -79,7 +79,37 @@ function App() {
     .then(res => res.json())
     .then(appointments => setAppointments(appointments));
   }, []);
+
   
+  
+
+
+  //delete newest appointment
+  const handleDeleteClick = () => {
+    if (appointments.length === 0) {
+      // No appointments to delete
+      return;
+    }
+
+    // Send DELETE request to delete the appointment
+    fetch(`http://localhost:9292/appointments/${appointmentId}`, {
+      method: 'DELETE',
+    })
+      .then((response) => response.text())
+      .then((message) => {ss
+        // Display the response message
+        console.log(message);
+        
+        // Remove the deleted appointment from the appointments array
+        const updatedAppointments = appointments.filter(
+          (appointment) => appointment.id !== appointmentId
+        );
+        setAppointments(updatedAppointments);
+      })
+      .catch((error) => {
+        console.error('Error deleting appointment:', error);
+      });
+  };
   
    return(
     <>
@@ -100,6 +130,8 @@ function App() {
             handleDoctorNameChange={handleDoctorNameChange}
             patientName={patientName}
             doctorName={doctorName}
+            handleDeleteClick={handleDeleteClick}
+            
             />}/>
           
         </Routes>

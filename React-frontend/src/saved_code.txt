@@ -1,3 +1,7 @@
+
+LIST OF WORKING CODES THAT HAVE BEEN REPLACED FOR IMPROVED ONES
+
+
 <>
       <Router>
         
@@ -82,5 +86,11 @@ function AppointmentListAndForm({appointments}){
 }
 
 export default AppointmentListAndForm;
+
+ <p>Patient Name: {newestAppointment.patient_name}</p>
+           <p>Doctor Name: {newestAppointment.doctor_name}</p>
+           <p>Appointment Date: {newestAppointment.appointment_date}</p>
+           <p>Duration: {newestAppointment.duration}</p>
+           <button>Cancel Appointment</button>
       
   
